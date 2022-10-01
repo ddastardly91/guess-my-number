@@ -26,6 +26,8 @@ btnCheck.addEventListener('click', () => {
     number.textContent = secretNumber;
     document.body.style.backgroundColor = 'green';
     message.textContent = '🎉 Correct number!';
+    btnCheck.disabled = true;
+    btnAgain.disabled = false;
   } else if (Number(guess.value) > secretNumber) {
     scoreCount--;
     score.textContent = scoreCount;
@@ -34,15 +36,20 @@ btnCheck.addEventListener('click', () => {
     scoreCount--;
     score.textContent = scoreCount;
     message.textContent = '📉 Number too low!';
-  } else if (Number(guess.value) == 0) {
+  }
+
+  if (scoreCount <= 0) {
     message.textContent = '💥 You lost the game!!!';
     document.body.style.backgroundColor = 'red';
+    btnCheck.disabled = true;
+    btnAgain.disabled = false;
   }
 });
 
 btnAgain.addEventListener('click', () => {
   document.body.style.backgroundColor = '#222';
   guess.value = '';
+  btnCheck.disabled = false;
 
   if (Number(highScore.textContent) < scoreCount) {
     highScore.textContent = scoreCount;
