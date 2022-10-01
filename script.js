@@ -34,7 +34,7 @@ btnCheck.addEventListener('click', () => {
     scoreCount--;
     score.textContent = scoreCount;
     message.textContent = '📉 Number too low!';
-  } else if (Number(guess.value) === 0) {
+  } else if (Number(guess.value) == 0) {
     message.textContent = '💥 You lost the game!!!';
     document.body.style.backgroundColor = 'red';
   }
