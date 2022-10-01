@@ -34,6 +34,9 @@ btnCheck.addEventListener('click', () => {
     scoreCount--;
     score.textContent = scoreCount;
     message.textContent = '📉 Number too low!';
+  } else {
+    message.textContent = '💥 You lost the game!!!';
+    document.body.style.backgroundColor = 'red';
   }
 });
 
